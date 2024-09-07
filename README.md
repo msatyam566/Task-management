@@ -160,22 +160,7 @@ For any questions or support, please contact:
 
 Email: your-email@example.com
 GitHub: @your-username
-markdown
-Copy code
-
----
-
-### Sections Updated:
-1. **Getting Started**:
-   - Includes clone instructions with your repository URL.
-   - Updated `package.json` instructions.
-   
-2. **API Documentation**:
-   - Mentioned Swagger UI for interactive API documentation.
-
-3. **Authentication & Usage**:
-   - Examples of how to register, login, and use the task-related routes with JWT authentication.
-
-4. **Deployment**:
-   - Includes optional instructions for deploying the project to cloud services.
-
+How to Use:
+Register a user with the /register endpoint.
+Login to get the JWT token.
+Use the JWT token for subsequent requests to access protected routes.
