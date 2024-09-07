@@ -3,15 +3,15 @@
 
 This is a Task Management System API built with Node.js, Express, MongoDB, and JWT authentication. The API supports user registration, login, task management with role-based access control (Admin, Manager, and User), real-time task updates, and analytics. API documentation is available via Swagger UI.
 
+Note-
+Due to my account suspension i am not able to use twilio or send grid but has use smtp nodemailer sevices and there is not much difference in both services i am able to use any services and i was busy in couple of interviews task also so not able to add socket and redis if get enough i can add both buy you can ask me about this interview now below you can read the documentation 
+
 🚀 Features
 🔒 User Authentication: Register and login with JWT-based authentication.
 🔐 Role-Based Access Control: Different roles (Admin, Manager, User) with specific access levels.
 📋 Task Management: Create, update, delete, and view tasks based on user roles.
 📊 Task Analytics: Get detailed analytics of completed, pending, and overdue tasks.
 📑 Swagger Documentation: API documentation and testing via Swagger UI.
-
-Note-
-Due to my account suspension i am not able to use twilio or send grid but has use smtp nodemailer sevices and there is not much difference in both services i am able to use any services 
 
 
 🛠️ Prerequisites
