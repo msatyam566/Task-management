@@ -38,6 +38,7 @@ This allows you to start the server with npm start or npm run dev for developmen
 
 4. Configure Environment Variables
 Create a .env file in the root directory with the following content:
+The content will be in cred foler just for accebility i provide the env in folder 
 
 PORT=2000
 MONGO_URI=your_mongodb_connection_string
@@ -55,7 +56,6 @@ The API is fully documented using Swagger. You can access the documentation via 
 
 
 Postman collection
-
 I have added a postman collection folder you can access all api in that folder the collection is in json format
 
 Access Swagger UI
