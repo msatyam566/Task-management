@@ -1,0 +1,8 @@
+DB_CONNECT="mongodb+srv://satyam28147:bmd6WzxcwS9yw3Kb@cluster0.q43lt.mongodb.net/";
+ACCESS_TOKEN_SECRET=3s6v9y$B&E)H@McQfThWmZq4t7w!z%C*
+REFRESH_TOKEN_SECRET=RgUkXp2s5v8y/B?E(H+MbPeShVmYq3t6
+REFRESH_TOKEN_LIFE=180d
+ACCESS_TOKEN_LIFE=7d
+HOST_EMAIL=smtp.elasticemail.com
+USER=zinventory@wtf.digital
+PASSWORD =4F3AAB26B2EB01E046A59717B3A5D010E7B3
