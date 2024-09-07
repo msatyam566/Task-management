@@ -31,8 +31,7 @@ npm install
 Ensure the following scripts are included in your package.json:
 
 "scripts": {
-  "start": "node index.js",
-  "dev": "nodemon index.js"
+  "start": "nodemon index.js",
 }
 This allows you to start the server with npm start or npm run dev for development.
 
