@@ -11,7 +11,7 @@ This is a Task Management System API built with Node.js, Express, MongoDB, and J
 📑 Swagger Documentation: API documentation and testing via Swagger UI.
 
 Note-
-Due to my account suspendion i am not able to use twilio or send grid but has use smtp nodemailer sevices and there is not much difference in this 
+Due to my account suspension i am not able to use twilio or send grid but has use smtp nodemailer sevices and there is not much difference in both services i am able to use any services 
 
 
 🛠️ Prerequisites
