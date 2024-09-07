@@ -1,7 +1,8 @@
+const  sendEmail  = require('../functions/sendEmail');
 const Task = require('../models/task.model');
+const userModel = require('../models/user.model');
 
 exports.createTask = async (req, res) => {
-
   const { title, description, dueDate, priority, status, assignedTo } = req.body;
 
   try {
@@ -16,8 +17,24 @@ exports.createTask = async (req, res) => {
     });
 
     const task = await newTask.save();
-    // Emit real-time event when a new task is created
-    global.io.emit('taskCreated', task);
+
+    const getEmailToSendNotification = await userModel.findById(task.assignedTo);
+    const getEmail = getEmailToSendNotification.email
+
+
+    // Prepare email details
+    const emailList = [getEmail]; // Assuming 'assignedTo' is an email, or adapt accordingly
+    const emailBody = `
+      <h3>New Task Assigned: ${title}</h3>
+      <p><strong>Description:</strong> ${description}</p>
+      <p><strong>Due Date:</strong> ${dueDate}</p>
+      <p><strong>Priority:</strong> ${priority}</p>
+      <p><strong>Status:</strong> ${status}</p>
+    `;
+
+    // Send notification email
+    console.log(sendEmail)
+    await sendEmail(emailList, emailBody);
 
     res.status(201).json(task);
   } catch (err) {
