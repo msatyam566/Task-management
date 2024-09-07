@@ -1,4 +1,4 @@
-const  sendEmail  = require('../functions/sendEmail');
+const sendEmail = require('../functions/sendEmail');
 const Task = require('../models/task.model');
 const userModel = require('../models/user.model');
 
@@ -23,7 +23,7 @@ exports.createTask = async (req, res) => {
 
 
     // Prepare email details
-    const emailList = [getEmail]; // Assuming 'assignedTo' is an email, or adapt accordingly
+    const emailList = [getEmail];
     const emailBody = `
       <h3>New Task Assigned: ${title}</h3>
       <p><strong>Description:</strong> ${description}</p>
@@ -38,11 +38,14 @@ exports.createTask = async (req, res) => {
 
     res.status(201).json(task);
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).send({ messege: 'Server error', data: err.message });
+
   }
 };
 
+
+
+// Api to fetch all tasks
 
 exports.getTasks = async (req, res) => {
   try {
@@ -65,13 +68,15 @@ exports.getTasks = async (req, res) => {
       }).populate('assignedTo', 'username email');
     }
 
-    res.json(tasks);
+    res.status(200).json({ messege: "Tasks fetched succesfully", data: tasks, count: tasks.length });
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).send({ messege: 'Server error', data: err.message });
+
   }
 };
 
+
+// Api to update task by manager and admin
 
 exports.updateTask = async (req, res) => {
   const { title, description, dueDate, priority, status, assignedTo } = req.body;
@@ -87,29 +92,30 @@ exports.updateTask = async (req, res) => {
 
     task = await Task.findByIdAndUpdate(req.params.id, { $set: taskFields }, { new: true });
 
-    res.json(task);
+
+    res.status(200).json({ messege: "Task is updated", data: task });
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
+
+    res.status(500).send({ messege: 'Server error', data: err.message });
   }
 };
 
+// Api to delete task
 
 exports.deleteTask = async (req, res) => {
   try {
-    let task = await Task.findById(req.params.id);
+    const getTaskId = req.params.id
+    let task = await Task.findById(getTaskId);
 
     if (!task) {
       return res.status(404).json({ msg: 'Task not found' });
     }
 
-
     await Task.findByIdAndDelete(req.params.id);
 
-    res.json({ msg: 'Task removed' });
+    res.status(200).json({ msg: 'Task removed succesfully' });
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
+    res.status(500).send({ messege: 'Server error', data: err.message });
   }
 };
 

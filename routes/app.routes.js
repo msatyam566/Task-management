@@ -3,7 +3,7 @@ const router = express.Router();
 
 // Import necessary middlewares and controllers
 const { loginLimiter } = require("../middleware/rateLimiter");
-const { registerUser, loginUser, getUserProfile } = require('../controller/userController');
+const { registerUser, loginUser, getUserProfile, logoutUser } = require('../controller/userController');
 const roleCheck = require('../middleware/roleCheck');
 const { getTasks, updateTask, deleteTask, createTask } = require('../controller/taskController');
 const validateAccessToken = require('../middleware/jwtValidation');
@@ -38,7 +38,7 @@ const { getTaskAnalytics } = require('../controller/getAnalytics');
  *       400:
  *         description: Bad request
  */
-router.post("/register", registerUser);
+router.post("/auth/register", registerUser);
 
 /**
  * @swagger
@@ -66,7 +66,8 @@ router.post("/register", registerUser);
  *       400:
  *         description: Invalid credentials
  */
-router.post("/login", loginLimiter, loginUser);
+router.post("/auth/login", loginLimiter, loginUser);
+router.delete("/user/logout", validateAccessToken, logoutUser);
 
 /**
  * @swagger
@@ -82,7 +83,7 @@ router.post("/login", loginLimiter, loginUser);
  *       401:
  *         description: Unauthorized
  */
-router.get("/", validateAccessToken, getUserProfile);
+router.get("/user", validateAccessToken, getUserProfile);
 
 // Task management
 /**

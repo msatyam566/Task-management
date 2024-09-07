@@ -16,10 +16,8 @@ const generateRefreshToken = (payload, expiresIn) => {
   return `Bearer ${token}`;
 };
 
-// const generateCryptoKey = () => crypto.randomBytes(32).toString("hex");
 
 module.exports = {
   generateAccessToken,
   generateRefreshToken,
-  // generateCryptoKey,
 };

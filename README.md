@@ -8,11 +8,12 @@ This is a Task Management System API built with Node.js, Express, MongoDB, and J
 📋 Task Management: Create, update, delete, and view tasks based on user roles.
 📊 Task Analytics: Get detailed analytics of completed, pending, and overdue tasks.
 📑 Swagger Documentation: API documentation and testing via Swagger UI.
-📡 Real-Time Notifications: Task updates via Socket.io (optional).
+
+
 🛠️ Prerequisites
 Before starting, make sure you have the following installed:
 
-Node.js (v12 or higher)
+Node.js (v16 or higher)
 MongoDB (running locally or a MongoDB Atlas URI)
 npm (Node Package Manager)
 💻 Getting Started
@@ -21,20 +22,17 @@ bash
 Copy code
 git clone https://github.com/msatyam566/Task-management.git
 cd Task-management
+
 2. Install Dependencies
 Install all necessary dependencies by running:
-
-bash
-Copy code
 npm install
+
 3. Modify the package.json Scripts
 Ensure the following scripts are included in your package.json:
 
-json
-Copy code
 "scripts": {
-  "start": "node server.js",
-  "dev": "nodemon server.js"
+  "start": "node index.js",
+  "dev": "nodemon index.js"
 }
 This allows you to start the server with npm start or npm run dev for development.
 
@@ -48,13 +46,17 @@ JWT_SECRET=your_jwt_secret
 5. Start the Server
 To start the server, run:
 
-bash
-Copy code
+
 npm start
 The server will run on the port specified in the .env file (default is 2000).
 
 📜 API Documentation
 The API is fully documented using Swagger. You can access the documentation via Swagger UI after starting the server.
+
+
+Postman collection
+
+I have added a postman collection folder you can access all api in that folder the collection is in json format
 
 Access Swagger UI
 📍 Navigate to: http://localhost:2000/api-docs
@@ -63,7 +65,7 @@ Here you can explore and test the API endpoints interactively.
 
 🔐 Authentication & Usage
 1. Register a User
-Endpoint: /api/register
+Endpoint: /api/auth/register
 Method: POST
 Description: Register a new user.
 Request Body:
@@ -75,7 +77,7 @@ Request Body:
 
 
 2. Login
-Endpoint: /api/login
+Endpoint: /api/auth/login
 Method: POST
 Description: Login and receive a JWT token.
 Request Body:
@@ -85,14 +87,13 @@ Request Body:
   "password": "securepassword"
 }
 Response:
-json
-Copy code
+
 {
-  "token": "your_jwt_token_here"
+  "token": "Bearer token"
 }
 
 3. Get User Profile
-Endpoint: /api
+Endpoint: /api/user
 Method: GET
 Authorization: Requires Bearer token in the Authorization header.
 Response: Returns the authenticated user's profile.
@@ -141,7 +142,7 @@ To test the API endpoints, you can use tools like Postman or Swagger UI.
 JWT Authentication
 When making requests to protected routes (e.g., /api/task), include the JWT token in the Authorization header:
 
-Authorization: Bearer <your-jwt-token>
+Authorization: Bearer <jwtToken>
 
 Rate Limiting
 The login route is protected by rate limiting to prevent brute-force attacks.

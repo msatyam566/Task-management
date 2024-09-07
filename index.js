@@ -7,6 +7,8 @@ const swaggerUi = require('swagger-ui-express');  // Added swagger-ui-express fo
 const http = require('http'); // Import the HTTP module to create the server
 require('dotenv').config();
 
+
+
 const app = express();
 const port = process.env.PORT || 2000;
 
@@ -33,6 +35,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
+
+
+
 
 // Swagger Definition and Options
 const swaggerOptions = {

@@ -2,11 +2,11 @@ const Task = require('../models/task.model');
 
 exports.getTaskAnalytics = async (req, res) => {
   try {
-    const completedTasks = await Task.countDocuments({ status: 'Completed' });
-    const pendingTasks = await Task.countDocuments({ status: 'Pending' });
-    const overdueTasks = await Task.countDocuments({ dueDate: { $lt: Date.now() }, status: { $ne: 'Completed' } });
+    const completedTasks = await Task.countDocuments({ status: 'Completed' }); // Tasks that are completed
+    const pendingTasks = await Task.countDocuments({ status: 'In Progress' }); // Tasks that are in progress
+    const overdueTasks = await Task.countDocuments({ dueDate: { $lt: Date.now() }, status: { $ne: 'Pending' } }); // Tasks that are not completed due date
 
-    res.json({
+    res.status(200)({
       completedTasks,
       pendingTasks,
       overdueTasks
