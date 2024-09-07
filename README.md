@@ -41,13 +41,9 @@ This allows you to start the server with npm start or npm run dev for developmen
 4. Configure Environment Variables
 Create a .env file in the root directory with the following content:
 
-bash
-Copy code
 PORT=2000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-SENDGRID_API_KEY=your_sendgrid_api_key  # Optional for email notifications
-Replace the placeholders with your actual MongoDB URI, JWT secret, and SendGrid API key (if using email notifications).
 
 5. Start the Server
 To start the server, run:
