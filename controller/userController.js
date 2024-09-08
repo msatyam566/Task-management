@@ -83,7 +83,7 @@ exports.loginUser = async (req, res) => {
           res.cookie("auth", refreshToken, { httpOnly: true });
 
 
-        res.status(200).json({ token });
+        res.status(200).json({ accessToken });
     } catch (error) {
         if (error.isJoi) {
             return res.status(400).json({ errors: error.details.map((detail) => detail.message) });

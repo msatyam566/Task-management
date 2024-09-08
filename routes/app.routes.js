@@ -11,7 +11,7 @@ const { getTaskAnalytics } = require('../controller/getAnalytics');
 
 /**
  * @swagger
- * /api/register:
+ * /api/auth/register:
  *   post:
  *     summary: Register a new user
  *     tags: [Authentication]
@@ -23,12 +23,12 @@ const { getTaskAnalytics } = require('../controller/getAnalytics');
  *             type: object
  *             required:
  *               - email
- *               - username
+ *               - userName
  *               - password
  *             properties:
  *               email:
  *                 type: string
- *               username:
+ *               userName:
  *                 type: string
  *               password:
  *                 type: string
@@ -42,7 +42,7 @@ router.post("/auth/register", registerUser);
 
 /**
  * @swagger
- * /api/login:
+ * /api/auth/login:
  *   post:
  *     summary: Log in a user
  *     tags: [Authentication]
@@ -71,7 +71,7 @@ router.delete("/user/logout", validateAccessToken, logoutUser);
 
 /**
  * @swagger
- * /api:
+ * /api/user:
  *   get:
  *     summary: Get the user profile
  *     tags: [Profile]
