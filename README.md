@@ -1,6 +1,10 @@
 
 🌟 Task Management System API
+
 This is a Task Management System API built with Node.js, Express, MongoDB, and JWT authentication. The API supports user registration, login, task management with role-based access control (Admin, Manager, and User), real-time task updates, and analytics. API documentation is available via Swagger UI.
+
+Note-
+Due to my account suspension i am not able to use twilio or send grid but has use smtp nodemailer sevices and there is not much difference in both services i am able to use any services and i was busy in couple of interviews task also so not able to add socket and redis if get enough time  i can add both but you can ask me about this interview now below you can read the documentation 
 
 🚀 Features
 🔒 User Authentication: Register and login with JWT-based authentication.
@@ -31,13 +35,13 @@ npm install
 Ensure the following scripts are included in your package.json:
 
 "scripts": {
-  "start": "node index.js",
-  "dev": "nodemon index.js"
+  "start": "nodemon index.js",
 }
 This allows you to start the server with npm start or npm run dev for development.
 
 4. Configure Environment Variables
 Create a .env file in the root directory with the following content:
+The content will be in cred foler just for accebility i provide the env in folder 
 
 PORT=2000
 MONGO_URI=your_mongodb_connection_string
@@ -55,7 +59,6 @@ The API is fully documented using Swagger. You can access the documentation via 
 
 
 Postman collection
-
 I have added a postman collection folder you can access all api in that folder the collection is in json format
 
 Access Swagger UI
